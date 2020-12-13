@@ -149,6 +149,39 @@ console.log("12.  I will buy a drink, true or false?  " + willBuyDrink(true,10.5
 
 //13.  Create a function of my own design to solve a problem
 
+//A function to tell you the week day given the date in "MM/DD/YYYY" format
+//Hopefully demonstrating closure too.  As soon as the function is complete
+//
+
+function getTheWeekDay(date) {
+    let theDate = new Date(date);
+    //var theFormattedDate = `13.  ${theDate.getMonth()+1}/${theDate.getDate()}/${theDate.getFullYear()} is a ${returnsTheWeekDay()}`;
+    console.log(`13.  ${theDate.getMonth()+1}/${theDate.getDate()}/${theDate.getFullYear()} is a ${returnsTheWeekDay()}.`);
+    function returnsTheWeekDay(){ //Here's the enclosed function
+        if (Object.prototype.toString.call(theDate) === "[object Date]"){
+            switch (theDate.getUTCDay()){
+                case 0:
+                    return 'Sunday';
+                case 1:
+                    return "Monday";
+                case 2:
+                    return "Tuesday";
+                case 3:
+                    return "Wednesday";
+                case 4:
+                    return "Thursday";
+                case 5:
+                    return "Friday";
+                case 6:
+                    return "Saturday";
+            }
+        }
+    }
+}
+
+getTheWeekDay("12/12/2020");
+//returnsTheWeekDay("10/10/2020"); //is not defined in the global scope therefor closure occurred
+
 
 //quiz
 //7
